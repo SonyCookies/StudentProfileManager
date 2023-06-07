@@ -54,6 +54,14 @@ namespace StudentProfileManager
             this.txtStudentAddress = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtSuffix = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtLName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtMName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSection = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtGuardianAge = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
@@ -99,14 +107,6 @@ namespace StudentProfileManager
             this.txtFatherName = new System.Windows.Forms.TextBox();
             this.btnAddStud = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtSection = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtMName = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtLName = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtSuffix = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -282,10 +282,12 @@ namespace StudentProfileManager
             // dtpStudentBirth
             // 
             this.dtpStudentBirth.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStudentBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStudentBirth.Location = new System.Drawing.Point(16, 173);
             this.dtpStudentBirth.Name = "dtpStudentBirth";
             this.dtpStudentBirth.Size = new System.Drawing.Size(272, 24);
             this.dtpStudentBirth.TabIndex = 10;
+            this.dtpStudentBirth.Value = new System.DateTime(2023, 6, 7, 0, 0, 0, 0);
             // 
             // label13
             // 
@@ -397,6 +399,82 @@ namespace StudentProfileManager
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(648, 83);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 17);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Suffix: ";
+            // 
+            // txtSuffix
+            // 
+            this.txtSuffix.BackColor = System.Drawing.Color.White;
+            this.txtSuffix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSuffix.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSuffix.Location = new System.Drawing.Point(649, 104);
+            this.txtSuffix.Name = "txtSuffix";
+            this.txtSuffix.Size = new System.Drawing.Size(107, 24);
+            this.txtSuffix.TabIndex = 8;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(440, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(87, 17);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Last Name: ";
+            // 
+            // txtLName
+            // 
+            this.txtLName.BackColor = System.Drawing.Color.White;
+            this.txtLName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLName.Location = new System.Drawing.Point(441, 105);
+            this.txtLName.Name = "txtLName";
+            this.txtLName.Size = new System.Drawing.Size(192, 24);
+            this.txtLName.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(229, 84);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 17);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Middle Name: ";
+            // 
+            // txtMName
+            // 
+            this.txtMName.BackColor = System.Drawing.Color.White;
+            this.txtMName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMName.Location = new System.Drawing.Point(230, 105);
+            this.txtMName.Name = "txtMName";
+            this.txtMName.Size = new System.Drawing.Size(192, 24);
+            this.txtMName.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(525, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 17);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Section: ";
+            // 
+            // txtSection
+            // 
+            this.txtSection.BackColor = System.Drawing.Color.White;
+            this.txtSection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSection.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSection.Location = new System.Drawing.Point(597, 37);
+            this.txtSection.Name = "txtSection";
+            this.txtSection.Size = new System.Drawing.Size(74, 24);
+            this.txtSection.TabIndex = 3;
             // 
             // groupBox2
             // 
@@ -878,82 +956,6 @@ namespace StudentProfileManager
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(525, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 17);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Section: ";
-            // 
-            // txtSection
-            // 
-            this.txtSection.BackColor = System.Drawing.Color.White;
-            this.txtSection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSection.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSection.Location = new System.Drawing.Point(597, 37);
-            this.txtSection.Name = "txtSection";
-            this.txtSection.Size = new System.Drawing.Size(74, 24);
-            this.txtSection.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(229, 84);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 17);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Middle Name: ";
-            // 
-            // txtMName
-            // 
-            this.txtMName.BackColor = System.Drawing.Color.White;
-            this.txtMName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMName.Location = new System.Drawing.Point(230, 105);
-            this.txtMName.Name = "txtMName";
-            this.txtMName.Size = new System.Drawing.Size(192, 24);
-            this.txtMName.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(440, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 17);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Last Name: ";
-            // 
-            // txtLName
-            // 
-            this.txtLName.BackColor = System.Drawing.Color.White;
-            this.txtLName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLName.Location = new System.Drawing.Point(441, 105);
-            this.txtLName.Name = "txtLName";
-            this.txtLName.Size = new System.Drawing.Size(192, 24);
-            this.txtLName.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(648, 83);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 17);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Suffix: ";
-            // 
-            // txtSuffix
-            // 
-            this.txtSuffix.BackColor = System.Drawing.Color.White;
-            this.txtSuffix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSuffix.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuffix.Location = new System.Drawing.Point(649, 104);
-            this.txtSuffix.Name = "txtSuffix";
-            this.txtSuffix.Size = new System.Drawing.Size(107, 24);
-            this.txtSuffix.TabIndex = 8;
-            // 
             // AddStudentPanelPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -961,7 +963,7 @@ namespace StudentProfileManager
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 17);
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(954, 573);
+            this.ClientSize = new System.Drawing.Size(971, 573);
             this.ControlBox = false;
             this.Controls.Add(this.btnAddStud);
             this.Controls.Add(this.groupBox2);

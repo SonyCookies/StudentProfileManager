@@ -67,13 +67,21 @@ namespace StudentProfileManager
         private void AddStudentPanelPage_Load(object sender, EventArgs e)
         {
             sd = new StudentDatabase();
+
+            dtpStudentBirth.Format = DateTimePickerFormat.Custom;
+            dtpStudentBirth.CustomFormat = "MM/dd/yyyy";
         }
+
 
         private void btnAddStud_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtStudentId.Text) || string.IsNullOrEmpty(txtYear.Text) ||
                 string.IsNullOrEmpty(txtSection.Text) || string.IsNullOrEmpty(cmbCourse.Text) ||
-                string.IsNullOrEmpty(cmbStudentType.Text) || string.IsNullOrEmpty(txtStudentId.Text))
+                string.IsNullOrEmpty(cmbStudentType.Text) || string.IsNullOrEmpty(txtFName.Text) ||
+                string.IsNullOrEmpty(txtMName.Text) || string.IsNullOrEmpty(txtLName.Text) ||
+                string.IsNullOrEmpty(txtStudentReligion.Text) || string.IsNullOrEmpty(txtStudentAge.Text) ||
+                string.IsNullOrEmpty(txtStudentPhone.Text) || string.IsNullOrEmpty(txtStudentEmail.Text) ||
+                string.IsNullOrEmpty(txtStudentPoB.Text) || string.IsNullOrEmpty(txtStudentAddress.Text))
             {
                 MessageBox.Show("Please fill in all required fields.");
                 return;
@@ -102,6 +110,11 @@ namespace StudentProfileManager
             Clear();
 
             MessageBox.Show("Student Added Successfully");
+
+            if (ParentForm is DashBoardForm dashboardForm)
+            {
+                dashboardForm.OpenChildForm(new StudentPanelPage(), dashboardForm.btnStudentPage);
+            }
         }
     }
 }

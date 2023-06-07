@@ -165,6 +165,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditStudentForm.Designer.cs">
+      <DependentUpon>EditStudentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddStudentPanelPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentProfileManagerDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ViewStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewStudentForm.Designer.cs">
+      <DependentUpon>ViewStudentForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EditStudentForm.resx">
+      <DependentUpon>EditStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddStudentPanelPage.resx">
       <DependentUpon>AddStudentPanelPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +261,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\StudentPanelPage.resx">
       <DependentUpon>StudentPanelPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewStudentForm.resx">
+      <DependentUpon>ViewStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

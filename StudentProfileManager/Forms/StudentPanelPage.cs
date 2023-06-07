@@ -42,7 +42,47 @@ namespace StudentProfileManager
         {
             if (ParentForm is DashBoardForm dashboardForm)
             {
-                dashboardForm.OpenChildForm(new AddStudentPanelPage(), sender);
+                dashboardForm.OpenChildForm(new AddStudentPanelPage(), dashboardForm.btnAddStudentPage);
+            }
+        }
+
+        private void btnViewStudent_Click(object sender, EventArgs e)
+        {
+            if (dgvStudentManage.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvStudentManage.SelectedRows[0];
+
+                // Get the ID from the selected row
+                string studentId = selectedRow.Cells["StudentId"].Value.ToString();
+
+                // Create an instance of the ViewStudent form
+                ViewStudentForm viewStudentForm = new ViewStudentForm(studentId);
+
+                // Show the ViewStudent form
+                viewStudentForm.Show();
+            }
+        }
+
+        private void btnEditStudent_Click(object sender, EventArgs e)
+        {
+            EditStudentForm esForm = new EditStudentForm();
+            esForm.Show();
+        }
+
+        private void btnDeleteStudent_Click(object sender, EventArgs e)
+        {
+            sd = new StudentDatabase();
+            if (dgvStudentManage.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvStudentManage.SelectedRows[0];
+                string id = selectedRow.Cells["StudentId"].Value.ToString();
+
+                string query = "DELETE FROM StudentInfo WHERE StudentId = @ID";
+                sd.DeleteStudent(query, id);
+
+                dgvStudentManage.Rows.RemoveAt(selectedRow.Index);
+
+                MessageBox.Show("Student Deleted Successfully.");
             }
         }
     }

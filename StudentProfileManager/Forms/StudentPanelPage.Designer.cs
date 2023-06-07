@@ -31,9 +31,9 @@ namespace StudentProfileManager
         {
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnViewStudent = new System.Windows.Forms.Button();
+            this.btnEditStudent = new System.Windows.Forms.Button();
+            this.btnDeleteStudent = new System.Windows.Forms.Button();
             this.dgvStudentManage = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,9 +55,9 @@ namespace StudentProfileManager
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnViewStudent);
+            this.groupBox1.Controls.Add(this.btnEditStudent);
+            this.groupBox1.Controls.Add(this.btnDeleteStudent);
             this.groupBox1.Controls.Add(this.dgvStudentManage);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label2);
@@ -72,35 +72,38 @@ namespace StudentProfileManager
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Manage Students";
             // 
-            // button5
+            // btnViewStudent
             // 
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(681, 543);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(80, 36);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "View";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnViewStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewStudent.Location = new System.Drawing.Point(681, 543);
+            this.btnViewStudent.Name = "btnViewStudent";
+            this.btnViewStudent.Size = new System.Drawing.Size(80, 36);
+            this.btnViewStudent.TabIndex = 9;
+            this.btnViewStudent.Text = "View";
+            this.btnViewStudent.UseVisualStyleBackColor = true;
+            this.btnViewStudent.Click += new System.EventHandler(this.btnViewStudent_Click);
             // 
-            // button4
+            // btnEditStudent
             // 
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(767, 543);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(80, 36);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Edit";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnEditStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditStudent.Location = new System.Drawing.Point(767, 543);
+            this.btnEditStudent.Name = "btnEditStudent";
+            this.btnEditStudent.Size = new System.Drawing.Size(80, 36);
+            this.btnEditStudent.TabIndex = 8;
+            this.btnEditStudent.Text = "Edit";
+            this.btnEditStudent.UseVisualStyleBackColor = true;
+            this.btnEditStudent.Click += new System.EventHandler(this.btnEditStudent_Click);
             // 
-            // button3
+            // btnDeleteStudent
             // 
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(853, 543);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 36);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDeleteStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteStudent.Location = new System.Drawing.Point(853, 543);
+            this.btnDeleteStudent.Name = "btnDeleteStudent";
+            this.btnDeleteStudent.Size = new System.Drawing.Size(80, 36);
+            this.btnDeleteStudent.TabIndex = 7;
+            this.btnDeleteStudent.Text = "Delete";
+            this.btnDeleteStudent.UseVisualStyleBackColor = true;
+            this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
             // dgvStudentManage
             // 
@@ -198,14 +201,14 @@ namespace StudentProfileManager
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnAddStudent;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.DataGridView dgvStudentManage;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnViewStudent;
+        private System.Windows.Forms.Button btnEditStudent;
+        private System.Windows.Forms.Button btnDeleteStudent;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

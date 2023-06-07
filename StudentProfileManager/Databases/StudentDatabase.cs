@@ -13,6 +13,7 @@ namespace StudentProfileManager
     {
         private SqlConnection connection;
         private SqlCommand cmd;
+        public string connectionString;
         public string addquery;
         private DataTable dT;
         private SqlDataAdapter dAdapter;
@@ -24,18 +25,14 @@ namespace StudentProfileManager
 
         private void OpenConnection()
         {
-            string connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\toxic\\source\\repos\\StudentProfileManager\\StudentProfileManager\\StudentProfileManagerDatabase.mdf; Integrated Security = True";
+            connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\toxic\\source\\repos\\StudentProfileManager\\StudentProfileManager\\StudentProfileManagerDatabase.mdf; Integrated Security = True";
             connection = new SqlConnection(connectionString);
             connection.Open();
         }
 
         public int cud(string query)
         {
-            /*cmd = new SqlCommand("INSERT INTO StudentInfo (StudentId, YearLvl, Course, Section, StudentType, FName, MName, LName, Suffix, " +
-                "Religion, BirthDate, Age, PhoneNumber, EmailAdress, PlaceOfBirth, Address, " +
-                "FaName, FaOccupation, FaAddress, FaBirthDate, FaAge, FaPhoneNumber, FaEmailAddress, MoName, " +
-                "MoOccupation, MoAddress, MoBirthDate, MoAge, MoPhoneNumber, MoEmailAddress, GuName, GuRelation," +
-                "GuOccupation, GuPhoneNumber, GuBirthDate, GuAge, GuAddress) VALUES ('MCC2022-0225')", connection);*/
+           
             cmd = new SqlCommand(query, connection);
             return cmd.ExecuteNonQuery();
         }
@@ -71,5 +68,15 @@ namespace StudentProfileManager
             }
             return dTable;
         }
+
+        public void DeleteStudent(string query, string id)
+        {
+            cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@ID", id);
+
+            cmd.ExecuteNonQuery();
+        }
+
+
     }
 }

@@ -355,7 +355,6 @@ namespace StudentProfileManager
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.Button btnStudentPage;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnMinimize;
@@ -373,5 +372,6 @@ namespace StudentProfileManager
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Label lblLogo;
         public System.Windows.Forms.Button btnAddStudentPage;
+        public System.Windows.Forms.Button btnStudentPage;
     }
 }
