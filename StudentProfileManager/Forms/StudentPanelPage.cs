@@ -22,8 +22,7 @@ namespace StudentProfileManager
         private void StudentPanelPage_Load(object sender, EventArgs e)
         {
             sd = new StudentDatabase();
-            string query = "SELECT StudentID, StudentFName, StudentMName, StudentLName, StudentSuffix, Course, Year, Section, StudentType FROM StudentInfo";
-            dgvStudentManage.DataSource = sd.GetStudentData(query);
+            RefreshDataGridView();
 
             dgvStudentManage.Columns["StudentId"].HeaderText = "STUDENT ID";
             dgvStudentManage.Columns["StudentId"].FillWeight = 10;
@@ -36,6 +35,11 @@ namespace StudentProfileManager
             dgvStudentManage.Columns["StudentType"].HeaderText = "TYPE OF STUDENT";
             dgvStudentManage.Columns["StudentType"].FillWeight = 10;
 
+        }
+        public void RefreshDataGridView()
+        {
+            string query = "SELECT StudentID, StudentFName, StudentMName, StudentLName, StudentSuffix, Course, Year, Section, StudentType FROM StudentInfo";
+            dgvStudentManage.DataSource = sd.GetStudentData(query);
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
@@ -57,7 +61,6 @@ namespace StudentProfileManager
 
                 // Create an instance of the ViewStudent form
                 ViewStudentForm viewStudentForm = new ViewStudentForm(studentId);
-
                 // Show the ViewStudent form
                 viewStudentForm.Show();
             }
@@ -65,8 +68,19 @@ namespace StudentProfileManager
 
         private void btnEditStudent_Click(object sender, EventArgs e)
         {
-            EditStudentForm esForm = new EditStudentForm();
-            esForm.Show();
+            if (dgvStudentManage.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvStudentManage.SelectedRows[0];
+
+                // Get the ID from the selected row
+                string studentId = selectedRow.Cells["StudentId"].Value.ToString();
+
+                // Create an instance of the ViewStudent form
+                EditStudentForm editStudentForm = new EditStudentForm(studentId);
+                // Show the ViewStudent form
+                editStudentForm.Show();
+
+            }
         }
 
         private void btnDeleteStudent_Click(object sender, EventArgs e)

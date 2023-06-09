@@ -165,10 +165,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditStudentForm.cs">
+    <Compile Include="Forms\EditStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditStudentForm.Designer.cs">
+    <Compile Include="Forms\EditStudentForm.Designer.cs">
       <DependentUpon>EditStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddStudentPanelPage.cs">
@@ -228,7 +228,7 @@
     <Compile Include="Forms\ViewStudentForm.Designer.cs">
       <DependentUpon>ViewStudentForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="EditStudentForm.resx">
+    <EmbeddedResource Include="Forms\EditStudentForm.resx">
       <DependentUpon>EditStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddStudentPanelPage.resx">

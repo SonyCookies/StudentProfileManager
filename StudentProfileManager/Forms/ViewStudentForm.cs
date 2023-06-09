@@ -28,7 +28,7 @@ namespace StudentProfileManager
             SetStudentData();
         }
 
-        public void SetStudentData()
+        private void SetStudentData()
         {
             using (SqlConnection connection = new SqlConnection(sd.connectionString))
             {
@@ -41,23 +41,45 @@ namespace StudentProfileManager
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    // Retrieve the data fields from the reader
-                    string studentId = reader["StudentId"].ToString();
-                    string studentFName = reader["StudentFName"].ToString();
-                    string studentMName = reader["StudentMName"].ToString();
-                    string studentLName = reader["StudentLName"].ToString();
-                    string studentName = $"{studentFName} {studentMName} {studentLName}";
-                    string studentCourse = reader["Course"].ToString();
-                    DateTime studentBirthDateTime = (DateTime) reader["BirthDate"];
-                    string studentBirthDate = studentBirthDateTime.ToString("MM/dd/yyyy");
-                    // Retrieve other data fields as needed
+                    lblStudentId.Text = reader["StudentId"].ToString();
+                    lblStudentName.Text = $"{reader["StudentFName"]} {reader["StudentMName"]} {reader["StudentLName"]}";
+                    lblStudentCourse.Text = reader["Course"].ToString();
+                    lblStudentBirthDate.Text = ((DateTime) reader["BirthDate"]).ToString("MM/dd/yyyy");
+                    lblStudentYearSection.Text = $"{reader["Year"]}-{reader["Section"]}";
+                    lblStudentType.Text = reader["StudentType"].ToString();
+                    lblStudentGender.Text = reader["Gender"].ToString();
+                    lblStudentAge.Text = reader["Age"].ToString();
+                    lblStudentPhoneNumber.Text = reader["PhoneNumber"].ToString();
+                    lblStudentEmail.Text = reader["EmailAdress"].ToString();
+                    lblStudentReligion.Text = reader["Religion"].ToString();
+                    lblStudentBirth.Text = reader["PlaceOfBirth"].ToString();
+                    lblStudentAddress.Text = reader["Address"].ToString();
 
-                    // Display the fetched data in labels
-                    lblStudentId.Text = studentId;
-                    lblStudentName.Text = studentName;
-                    lblStudentCourse.Text = studentCourse;
-                    lblStudentBirthDate.Text = studentBirthDate;
-                    // Display other data fields accordingly
+
+                    FatherNameLabel.Text = reader["FaName"].ToString();
+                    FatherOccupationLabel.Text = reader["FaOccupation"].ToString();
+                    FatherAddressLabel.Text = reader["FaAddress"].ToString();
+                    FatherBirthDateLabel.Text = ((DateTime)reader["FaBirthDate"]).ToString("MM/dd/yyyy");
+                    FatherAgeLabel.Text = reader["FaAge"].ToString();
+                    FatherPhoneNumberLabel.Text = reader["FaPhoneNumber"].ToString();
+                    FatherEmailAddressLabel.Text = reader["FaEmailAddress"].ToString();
+
+
+                    MotherNameLabel.Text = reader["MoName"].ToString();
+                    MotherOccupationLabel.Text = reader["MoOccupation"].ToString();
+                    MotherAddressLabel.Text = reader["MoAddress"].ToString();
+                    MotherBirthDateLabel.Text = ((DateTime)reader["MoBirthDate"]).ToString("MM/dd/yyyy");
+                    MotherAgeLabel.Text = reader["MoAge"].ToString();
+                    MotherPhoneNumberLabel.Text = reader["MoPhoneNumber"].ToString();
+                    MotherEmailAddressLabel.Text = reader["MoEmailAddress"].ToString();
+
+                    GuardianNameLabel.Text = reader["GuName"].ToString();
+                    GuardianOccupationLabel.Text = reader["GuRelation"].ToString();
+                    GuardianAddressLabel.Text = reader["GuAddress"].ToString();
+                    GuardianBirthDateLabel.Text = ((DateTime)reader["GuBirthDate"]).ToString("MM/dd/yyyy");
+                    GuardianAgeLabel.Text = reader["GuAge"].ToString();
+                    GuardianPhoneNumberLabel.Text = reader["GuPhoneNumber"].ToString();
+                    GuardianRelationLabel.Text = reader["GuRelation"].ToString();
                 }
 
                 reader.Close();

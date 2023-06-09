@@ -54,6 +54,9 @@ namespace StudentProfileManager
             this.txtStudentAddress = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.importImageButton = new System.Windows.Forms.Button();
+            this.label38 = new System.Windows.Forms.Label();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSuffix = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -107,6 +110,7 @@ namespace StudentProfileManager
             this.txtFatherName = new System.Windows.Forms.TextBox();
             this.btnAddStud = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -265,15 +269,15 @@ namespace StudentProfileManager
             this.txtStudentReligion.BackColor = System.Drawing.Color.White;
             this.txtStudentReligion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtStudentReligion.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudentReligion.Location = new System.Drawing.Point(794, 105);
+            this.txtStudentReligion.Location = new System.Drawing.Point(811, 106);
             this.txtStudentReligion.Name = "txtStudentReligion";
-            this.txtStudentReligion.Size = new System.Drawing.Size(90, 24);
+            this.txtStudentReligion.Size = new System.Drawing.Size(77, 24);
             this.txtStudentReligion.TabIndex = 9;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(790, 84);
+            this.label12.Location = new System.Drawing.Point(807, 84);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(67, 17);
             this.label12.TabIndex = 25;
@@ -360,6 +364,9 @@ namespace StudentProfileManager
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.importImageButton);
+            this.groupBox1.Controls.Add(this.label38);
+            this.groupBox1.Controls.Add(this.cmbGender);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtSuffix);
             this.groupBox1.Controls.Add(this.label7);
@@ -395,15 +402,51 @@ namespace StudentProfileManager
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(27, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(900, 299);
+            this.groupBox1.Size = new System.Drawing.Size(900, 329);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student";
             // 
+            // importImageButton
+            // 
+            this.importImageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(29)))));
+            this.importImageButton.FlatAppearance.BorderSize = 0;
+            this.importImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.importImageButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importImageButton.Location = new System.Drawing.Point(734, 281);
+            this.importImageButton.Name = "importImageButton";
+            this.importImageButton.Size = new System.Drawing.Size(150, 32);
+            this.importImageButton.TabIndex = 4;
+            this.importImageButton.Text = "Import Picture";
+            this.importImageButton.UseVisualStyleBackColor = false;
+            this.importImageButton.Click += new System.EventHandler(this.importImageButton_Click);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(710, 84);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(59, 17);
+            this.label38.TabIndex = 33;
+            this.label38.Text = "Gender";
+            // 
+            // cmbGender
+            // 
+            this.cmbGender.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Female",
+            "Male"});
+            this.cmbGender.Location = new System.Drawing.Point(713, 105);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.Size = new System.Drawing.Size(84, 25);
+            this.cmbGender.Sorted = true;
+            this.cmbGender.TabIndex = 32;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(648, 83);
+            this.label8.Location = new System.Drawing.Point(646, 84);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 17);
             this.label8.TabIndex = 24;
@@ -414,9 +457,9 @@ namespace StudentProfileManager
             this.txtSuffix.BackColor = System.Drawing.Color.White;
             this.txtSuffix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSuffix.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuffix.Location = new System.Drawing.Point(649, 104);
+            this.txtSuffix.Location = new System.Drawing.Point(649, 106);
             this.txtSuffix.Name = "txtSuffix";
-            this.txtSuffix.Size = new System.Drawing.Size(107, 24);
+            this.txtSuffix.Size = new System.Drawing.Size(48, 24);
             this.txtSuffix.TabIndex = 8;
             // 
             // label7
@@ -452,7 +495,7 @@ namespace StudentProfileManager
             this.txtMName.BackColor = System.Drawing.Color.White;
             this.txtMName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMName.Location = new System.Drawing.Point(230, 105);
+            this.txtMName.Location = new System.Drawing.Point(229, 105);
             this.txtMName.Name = "txtMName";
             this.txtMName.Size = new System.Drawing.Size(192, 24);
             this.txtMName.TabIndex = 6;
@@ -521,7 +564,7 @@ namespace StudentProfileManager
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.txtFatherName);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(27, 350);
+            this.groupBox2.Location = new System.Drawing.Point(27, 380);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(900, 499);
             this.groupBox2.TabIndex = 1;
@@ -932,7 +975,7 @@ namespace StudentProfileManager
             this.btnAddStud.FlatAppearance.BorderSize = 0;
             this.btnAddStud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddStud.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddStud.Location = new System.Drawing.Point(777, 866);
+            this.btnAddStud.Location = new System.Drawing.Point(777, 895);
             this.btnAddStud.Name = "btnAddStud";
             this.btnAddStud.Size = new System.Drawing.Size(150, 35);
             this.btnAddStud.TabIndex = 2;
@@ -947,7 +990,7 @@ namespace StudentProfileManager
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(621, 866);
+            this.btnClear.Location = new System.Drawing.Point(621, 896);
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(150, 35);
@@ -956,6 +999,10 @@ namespace StudentProfileManager
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // AddStudentPanelPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -963,7 +1010,7 @@ namespace StudentProfileManager
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 17);
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(971, 573);
+            this.ClientSize = new System.Drawing.Size(954, 573);
             this.ControlBox = false;
             this.Controls.Add(this.btnAddStud);
             this.Controls.Add(this.groupBox2);
@@ -1065,5 +1112,9 @@ namespace StudentProfileManager
         private System.Windows.Forms.TextBox txtLName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMName;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.ComboBox cmbGender;
+        private System.Windows.Forms.Button importImageButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

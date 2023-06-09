@@ -32,7 +32,7 @@ namespace StudentProfileManager
 
         public int cud(string query)
         {
-           
+            
             cmd = new SqlCommand(query, connection);
             return cmd.ExecuteNonQuery();
         }
@@ -76,7 +76,5 @@ namespace StudentProfileManager
 
             cmd.ExecuteNonQuery();
         }
-
-
     }
 }

@@ -29,6 +29,8 @@ namespace StudentProfileManager
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnViewStudent = new System.Windows.Forms.Button();
@@ -37,8 +39,6 @@ namespace StudentProfileManager
             this.dgvStudentManage = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnAddStudent = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentManage)).BeginInit();
@@ -61,10 +61,8 @@ namespace StudentProfileManager
             this.groupBox1.Controls.Add(this.dgvStudentManage);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.btnAddStudent);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(946, 588);
@@ -74,35 +72,49 @@ namespace StudentProfileManager
             // 
             // btnViewStudent
             // 
+            this.btnViewStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(86)))), ((int)(((byte)(28)))));
+            this.btnViewStudent.FlatAppearance.BorderSize = 0;
+            this.btnViewStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewStudent.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewStudent.ForeColor = System.Drawing.Color.White;
             this.btnViewStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewStudent.Location = new System.Drawing.Point(681, 543);
+            this.btnViewStudent.Location = new System.Drawing.Point(671, 543);
             this.btnViewStudent.Name = "btnViewStudent";
             this.btnViewStudent.Size = new System.Drawing.Size(80, 36);
             this.btnViewStudent.TabIndex = 9;
             this.btnViewStudent.Text = "View";
-            this.btnViewStudent.UseVisualStyleBackColor = true;
+            this.btnViewStudent.UseVisualStyleBackColor = false;
             this.btnViewStudent.Click += new System.EventHandler(this.btnViewStudent_Click);
             // 
             // btnEditStudent
             // 
+            this.btnEditStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(29)))));
+            this.btnEditStudent.FlatAppearance.BorderSize = 0;
+            this.btnEditStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditStudent.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditStudent.Location = new System.Drawing.Point(767, 543);
+            this.btnEditStudent.Location = new System.Drawing.Point(762, 543);
             this.btnEditStudent.Name = "btnEditStudent";
             this.btnEditStudent.Size = new System.Drawing.Size(80, 36);
             this.btnEditStudent.TabIndex = 8;
             this.btnEditStudent.Text = "Edit";
-            this.btnEditStudent.UseVisualStyleBackColor = true;
+            this.btnEditStudent.UseVisualStyleBackColor = false;
             this.btnEditStudent.Click += new System.EventHandler(this.btnEditStudent_Click);
             // 
             // btnDeleteStudent
             // 
+            this.btnDeleteStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(43)))), ((int)(((byte)(42)))));
+            this.btnDeleteStudent.FlatAppearance.BorderSize = 0;
+            this.btnDeleteStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteStudent.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteStudent.ForeColor = System.Drawing.Color.White;
             this.btnDeleteStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteStudent.Location = new System.Drawing.Point(853, 543);
             this.btnDeleteStudent.Name = "btnDeleteStudent";
             this.btnDeleteStudent.Size = new System.Drawing.Size(80, 36);
             this.btnDeleteStudent.TabIndex = 7;
             this.btnDeleteStudent.Text = "Delete";
-            this.btnDeleteStudent.UseVisualStyleBackColor = true;
+            this.btnDeleteStudent.UseVisualStyleBackColor = false;
             this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
             // dgvStudentManage
@@ -119,7 +131,21 @@ namespace StudentProfileManager
             this.dgvStudentManage.MultiSelect = false;
             this.dgvStudentManage.Name = "dgvStudentManage";
             this.dgvStudentManage.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(25)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(86)))), ((int)(((byte)(28)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudentManage.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStudentManage.RowHeadersWidth = 76;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(86)))), ((int)(((byte)(28)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvStudentManage.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStudentManage.RowTemplate.DividerHeight = 1;
             this.dgvStudentManage.RowTemplate.Height = 50;
             this.dgvStudentManage.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -129,50 +155,38 @@ namespace StudentProfileManager
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(228, 34);
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(148, 32);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(546, 23);
+            this.textBox1.Size = new System.Drawing.Size(607, 27);
             this.textBox1.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(163, 37);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(74, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 17);
+            this.label2.Size = new System.Drawing.Size(72, 21);
             this.label2.TabIndex = 4;
             this.label2.Text = "Search: ";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Show: ";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(73, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(64, 24);
-            this.comboBox1.TabIndex = 2;
-            // 
             // btnAddStudent
             // 
+            this.btnAddStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(29)))));
+            this.btnAddStudent.FlatAppearance.BorderSize = 0;
+            this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddStudent.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddStudent.Image = global::StudentProfileManager.Properties.Resources.add_FILL0_wght400_GRAD0_opsz24;
             this.btnAddStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddStudent.Location = new System.Drawing.Point(809, 27);
+            this.btnAddStudent.Location = new System.Drawing.Point(806, 27);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(124, 36);
             this.btnAddStudent.TabIndex = 0;
             this.btnAddStudent.Text = "New Student";
             this.btnAddStudent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddStudent.UseVisualStyleBackColor = true;
+            this.btnAddStudent.UseVisualStyleBackColor = false;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // StudentPanelPage
@@ -208,7 +222,5 @@ namespace StudentProfileManager
         private System.Windows.Forms.Button btnViewStudent;
         private System.Windows.Forms.Button btnEditStudent;
         private System.Windows.Forms.Button btnDeleteStudent;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

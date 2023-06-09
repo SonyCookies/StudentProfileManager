@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace StudentProfileManager
 {
@@ -67,9 +68,6 @@ namespace StudentProfileManager
         private void AddStudentPanelPage_Load(object sender, EventArgs e)
         {
             sd = new StudentDatabase();
-
-            dtpStudentBirth.Format = DateTimePickerFormat.Custom;
-            dtpStudentBirth.CustomFormat = "MM/dd/yyyy";
         }
 
 
@@ -83,12 +81,12 @@ namespace StudentProfileManager
                 string.IsNullOrEmpty(txtStudentPhone.Text) || string.IsNullOrEmpty(txtStudentEmail.Text) ||
                 string.IsNullOrEmpty(txtStudentPoB.Text) || string.IsNullOrEmpty(txtStudentAddress.Text))
             {
-                MessageBox.Show("Please fill in all required fields.");
+                MessageBox.Show("Please fill in all required fields."); //
                 return;
             }
 
             string query = "INSERT INTO StudentInfo (StudentId, Year, Section, Course, StudentType," +
-                "StudentFName, StudentMName, StudentLName, StudentSuffix, Religion, BirthDate, Age," +
+                "StudentFName, StudentMName, StudentLName, StudentSuffix, Religion, BirthDate, Age, Gender, " +
                 "PhoneNumber, EmailAdress, PlaceOfBirth, Address, FaName, FaOccupation, FaAddress, FaAge," +
                 " FaBirthDate," +
                 "FaPhoneNumber, FaEmailAddress, MoName, MoOccupation, MoAddress, MoBirthDate, MoAge," +
@@ -97,7 +95,7 @@ namespace StudentProfileManager
                 ", '" + txtSection.Text + "', '" + cmbCourse.Text + "', '" + cmbStudentType.Text + "'" +
                 ", '" + txtFName.Text + "', '" + txtMName.Text + "', '" + txtLName.Text + "'" +
                 ", '" + txtSuffix.Text + "', '" + txtStudentReligion.Text + "', '" + dtpStudentBirth.Value + "'" +
-                ", '" + txtStudentAge.Text + "', '" + txtStudentPhone.Text + "', '" + txtStudentEmail.Text + "', " +
+                ", '" + txtStudentAge.Text + "', '" + cmbGender.Text + "', '" + txtStudentPhone.Text + "', '" + txtStudentEmail.Text + "', " +
                 "'" + txtStudentPoB.Text + "', '" + txtStudentAddress.Text + "', '" + txtFatherName.Text + "', " +
                 "'" + txtFatherOcc.Text + "', '" + txtFatherAddress.Text + "', '" + txtFatherAge.Text + "', '" + dtpFatherBirth.Value + "'," +
                 "'" + txtFatherPhone.Text + "', '" + txtFatherEmail.Text + "', '" + txtMotherName.Text + "', " +
@@ -109,12 +107,19 @@ namespace StudentProfileManager
             sd.cud(query);
             Clear();
 
-            MessageBox.Show("Student Added Successfully");
+            MessageBox.Show("Student Added Successfully"); // 
 
             if (ParentForm is DashBoardForm dashboardForm)
             {
                 dashboardForm.OpenChildForm(new StudentPanelPage(), dashboardForm.btnStudentPage);
             }
         }
+
+        private void importImageButton_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+
     }
 }
