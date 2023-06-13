@@ -122,7 +122,7 @@ namespace StudentProfileManager
         {
             string searchTerm = txtSearch.Text;
 
-            TODO
+            //TODO
             /*
             using (SqlConnection connection = new SqlConnection(sd.connectionString))
             {
