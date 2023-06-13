@@ -154,5 +154,10 @@ namespace StudentProfileManager
             }
             */
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
