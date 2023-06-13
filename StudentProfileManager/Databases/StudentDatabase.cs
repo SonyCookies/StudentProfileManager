@@ -52,18 +52,18 @@ namespace StudentProfileManager
 
             foreach (DataRow row in origDTable.Rows)
             {
-                string id = row["Id"].ToString();
-                string studentId = row["StudentId"].ToString();
-                string fName = row["StudentFName"].ToString();
-                string mName = row["StudentMName"].ToString();
-                string lName = row["StudentLName"].ToString();
-                string s = row["StudentSuffix"].ToString();
+                string id = row["Id"].ToString().Trim();
+                string studentId = row["StudentId"].ToString().Trim();
+                string fName = row["StudentFName"].ToString().Trim();
+                string mName = row["StudentMName"].ToString().Trim();
+                string lName = row["StudentLName"].ToString().Trim();
+                string s = row["StudentSuffix"].ToString().Trim();
                 string fullName = $"{lName}, {fName} {mName} {s}";
-                string course = row["Course"].ToString();
-                string year = row["Year"].ToString();
-                string section = row["Section"].ToString();
-                string yearSection = $"{year.Trim()}-{section}";
-                string typeOfStudent = row["StudentType"].ToString();
+                string course = row["Course"].ToString().Trim();
+                string year = row["Year"].ToString().Trim();
+                string section = row["Section"].ToString().Trim();
+                string yearSection = $"{year}-{section}";
+                string typeOfStudent = row["StudentType"].ToString().Trim();
 
                 dTable.Rows.Add(id, studentId, fullName, course, yearSection, typeOfStudent);
             }

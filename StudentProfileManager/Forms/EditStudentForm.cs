@@ -159,7 +159,7 @@ namespace StudentProfileManager
                     StudentPanelPage studentPanelPage = Application.OpenForms.OfType<StudentPanelPage>().FirstOrDefault();
 
                     // Update the DataGridView in the StudentPanelPage form
-                    studentPanelPage?.RefreshDataGridView();
+                    studentPanelPage?.txtSearch_TextChanged(sender, e);
                 }
                 else
                 {

@@ -80,7 +80,7 @@ namespace StudentProfileManager
         private void btnAddStud_Click(object sender, EventArgs e)
         {
 
-            byte[] imageData = ConvertImageToBytes(pbPreview.Image);
+            byte[] imageData;
            
             if (string.IsNullOrEmpty(txtStudentId.Text) || string.IsNullOrEmpty(txtYear.Text) ||
                 string.IsNullOrEmpty(txtSection.Text) || string.IsNullOrEmpty(cmbCourse.Text) ||
@@ -99,6 +99,7 @@ namespace StudentProfileManager
                 MessageBox.Show("Please fill in all required fields."); //
                 return;
             }
+            imageData = ConvertImageToBytes(pbPreview.Image);
 
             string query = "INSERT INTO StudentInfo (StudentId, Year, Section, Course, StudentType, " +
                 "StudentFName, StudentMName, StudentLName, StudentSuffix, Religion, BirthDate, Age, Gender, " +
