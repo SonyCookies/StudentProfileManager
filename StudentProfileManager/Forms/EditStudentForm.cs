@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace StudentProfileManager
 {
@@ -33,16 +34,15 @@ namespace StudentProfileManager
             {
                 connection.Open();
 
-                string sql = "SELECT * FROM StudentInfo WHERE StudentId = @StudentId";
+                string sql = "SELECT * FROM StudentInfo WHERE Id = @Id";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@StudentId", selectedIdentifier);
+                command.Parameters.AddWithValue("@Id", selectedIdentifier);
 
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
                     txtStudentId.Text = reader["StudentId"].ToString();
-                    txtStudentId.ReadOnly = true;
-                    txtStudentId.Enabled = true;
+                    txtNum.Text = reader["Id"].ToString();
                     txtFName.Text = reader["StudentFName"].ToString();
                     txtMName.Text = reader["StudentMName"].ToString();
                     txtLName.Text = reader["StudentLName"].ToString();
@@ -58,54 +58,137 @@ namespace StudentProfileManager
                     txtStudentPoB.Text = reader["PlaceOfBirth"].ToString();
                     txtStudentAddress.Text = reader["Address"].ToString();
                     txtSection.Text = reader["Section"].ToString();
+                    txtFileName.Text = reader["StudentImageFileName"].ToString();
+                    pbPreview.Image = ConvertByteToArrayToImage((byte[])reader["StudentImage"]);
+
+                    txtFatherName.Text = reader["FaName"].ToString().Trim();
+                    txtFatherOcc.Text = reader["FaOccupation"].ToString();
+                    txtFatherAddress.Text = reader["FaAddress"].ToString();
+                    dtpFatherBirth.Text = ((DateTime) reader["FaBirthDate"]).ToString("MM/dd/yyyy");
+                    txtFatherAge.Text = reader["FaAge"].ToString();
+                    txtFatherPhone.Text = reader["FaPhoneNumber"].ToString();
+                    txtFatherEmail.Text = reader["FaEmailAddress"].ToString();
+                    
+                    txtMotherName.Text = reader["MoName"].ToString();
+                    txtMotherOcc.Text = reader["MoOccupation"].ToString();
+                    txtMotherAddress.Text = reader["MoAddress"].ToString();
+                    dtpMotherBirth.Text = ((DateTime) reader["MoBirthDate"]).ToString("MM/dd/yyyy");
+                    txtMotherAge.Text = reader["MoAge"].ToString();
+                    txtMotherPhone.Text = reader["MoPhoneNumber"].ToString();
+                    txtMotherEmail.Text = reader["MoEmailAddress"].ToString();
+
+                    txtGuardianName.Text = reader["GuName"].ToString();
+                    txtGuardianOcc.Text = reader["GuOccupation"].ToString();
+                    txtGuardianAddress.Text = reader["GuAddress"].ToString();
+                    dtpGuardianBirth.Text = ((DateTime)reader["GuBirthDate"]).ToString("MM/dd/yyyy");
+                    txtGuardianAge.Text = reader["GuAge"].ToString();
+                    txtGuardianPhone.Text = reader["GuPhoneNumber"].ToString();
+                    txtGuardianRS.Text = reader["GuRelation"].ToString();
+
+
+
                 }
             }
         }
+        public Image ConvertByteToArrayToImage(byte[] data)
+        {
+            try
+            {
+                using (MemoryStream ms = new MemoryStream(data))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception or output the error message for debugging
+                Console.WriteLine($"Error converting byte array to image: {ex.Message}");
+                return null; // Return null or a default image in case of an error
+            }
 
-        /*string query = "INSERT INTO StudentInfo (StudentId, Year, Section, Course, StudentType," +
-                "StudentFName, StudentMName, StudentLName, StudentSuffix, Religion, BirthDate, Age, Gender, " +
-                "PhoneNumber, EmailAdress, PlaceOfBirth, Address, FaName, FaOccupation, FaAddress, FaAge," +
-                " FaBirthDate," +
-                "FaPhoneNumber, FaEmailAddress, MoName, MoOccupation, MoAddress, MoBirthDate, MoAge," +
-                "MoPhoneNumber, MoEmailAddress, GuName, GuRelation, GuOccupation, GuPhoneNumber, " +
-                "GuBirthDate, GuAge, GuAddress) VALUES ('" + txtStudentId.Text + "', '" + txtYear.Text + "'" +
-                ", '" + txtSection.Text + "', '" + cmbCourse.Text + "', '" + cmbStudentType.Text + "'" +
-                ", '" + txtFName.Text + "', '" + txtMName.Text + "', '" + txtLName.Text + "'" +
-                ", '" + txtSuffix.Text + "', '" + txtStudentReligion.Text + "', '" + dtpStudentBirth.Value + "'" +
-                ", '" + txtStudentAge.Text + "', '" + cmbGender.Text + "', '" + txtStudentPhone.Text + "', '" + txtStudentEmail.Text + "', " +
-                "'" + txtStudentPoB.Text + "', '" + txtStudentAddress.Text + "', '" + txtFatherName.Text + "', " +
-                "'" + txtFatherOcc.Text + "', '" + txtFatherAddress.Text + "', '" + txtFatherAge.Text + "', '" + dtpFatherBirth.Value + "'," +
-                "'" + txtFatherPhone.Text + "', '" + txtFatherEmail.Text + "', '" + txtMotherName.Text + "', " +
-                "'" + txtMotherOcc.Text + "', '" + txtMotherAddress.Text + "', '" + dtpMotherBirth.Value + "', " +
-                "'" + txtMotherAge.Text + "', '" + txtMotherPhone.Text + "', '" + txtMotherEmail.Text + "', " +
-                "'" + txtGuardianName.Text + "', '" + txtGuardianRS.Text + "', '" + txtGuardianOcc.Text + "', " +
-                "'" + txtGuardianPhone.Text + "', '" + dtpGuardianBirth.Value + "', '" + txtGuardianAge.Text + "', " +
-                "'" + txtGuardianAddress.Text + "')";*/
+        }
+
         private void btnSaveUpdate_Click(object sender, EventArgs e)
         {
+            byte[] imageData = ConvertImageToBytes(pbPreview.Image);
 
-            string query = "UPDATE StudentInfo SET Year = '" + txtYear.Text + "', " +
-                "Section = '" + txtSection.Text + "', Course = '" + cmbCourse.Text + "', StudentType = '" + cmbStudentType.Text + "', " +
-                "StudentFName = '" + txtFName.Text + "', StudentMName = '" + txtMName.Text + "', StudentLName = '" + txtLName.Text + "', " +
-                "StudentSuffix = '" + txtSuffix.Text + "', Religion = '" + txtStudentReligion.Text + "', BirthDate = '" + dtpStudentBirth.Value + "', " +
-                "Age = '" + txtStudentAge.Text + "', Gender = '" + cmbGender.Text + "', PhoneNumber = '" + txtStudentPhone.Text + "', " +
-                "EmailAdress = '" + txtStudentEmail.Text + "', PlaceOfBirth = '" + txtStudentPoB.Text + "', Address = '" + txtStudentAddress.Text + "' WHERE StudentId = '" + txtStudentId.Text + "'";
+            sd = new StudentDatabase();
 
-            if (sd.cud(query) > 0)
+            string query = "UPDATE StudentInfo SET StudentId = @StudentId, Year = @Year, Section = @Section, Course = @Course, " +
+               "StudentType = @StudentType, StudentFName = @StudentFName, StudentMName = @StudentMName, " +
+               "StudentLName = @StudentLName, StudentSuffix = @StudentSuffix, Religion = @Religion, " +
+               "BirthDate = @BirthDate, Age = @Age, Gender = @Gender, PhoneNumber = @PhoneNumber, " +
+               "EmailAdress = @EmailAdress, PlaceOfBirth = @PlaceOfBirth, Address = @Address, " +
+               "StudentImage = @StudentImage, StudentImageFileName = @StudentImageFileName WHERE Id = @Id";
+
+            using (SqlConnection connection = new SqlConnection(sd.connectionString))
             {
-                MessageBox.Show("Student Update Successfully");
-                StudentPanelPage studentPanelPage = Application.OpenForms.OfType<StudentPanelPage>().FirstOrDefault();
+                connection.Open();
 
-                // Update the DataGridView in the StudentPanelPage form
-                studentPanelPage?.RefreshDataGridView();
-            }
-            else
-            {
-                MessageBox.Show("Student Update Not Successfull");
-            }
+                SqlCommand command = new SqlCommand(query, connection);
 
-            // 
+                command.Parameters.AddWithValue("@StudentId", txtStudentId.Text);
+                command.Parameters.AddWithValue("@Id", txtNum.Text);
+                command.Parameters.AddWithValue("@Year", txtYear.Text);
+                command.Parameters.AddWithValue("@Section", txtSection.Text);
+                command.Parameters.AddWithValue("@Course", cmbCourse.Text);
+                command.Parameters.AddWithValue("@StudentType", cmbStudentType.Text);
+                command.Parameters.AddWithValue("@StudentFName", txtFName.Text);
+                command.Parameters.AddWithValue("@StudentMName", txtMName.Text);
+                command.Parameters.AddWithValue("@StudentLName", txtLName.Text);
+                command.Parameters.AddWithValue("@StudentSuffix", txtSuffix.Text);
+                command.Parameters.AddWithValue("@Religion", txtStudentReligion.Text);
+                command.Parameters.AddWithValue("@BirthDate", dtpStudentBirth.Value);
+                command.Parameters.AddWithValue("@Age", txtStudentAge.Text);
+                command.Parameters.AddWithValue("@Gender", cmbGender.Text);
+                command.Parameters.AddWithValue("@PhoneNumber", txtStudentPhone.Text);
+                command.Parameters.AddWithValue("@EmailAdress", txtStudentEmail.Text);
+                command.Parameters.AddWithValue("@PlaceOfBirth", txtStudentPoB.Text);
+                command.Parameters.AddWithValue("@Address", txtStudentAddress.Text);
+                command.Parameters.AddWithValue("@StudentImageFileName", txtFileName.Text);
+
+                command.Parameters.AddWithValue("@FaName", txtFatherName.Text);
+
+                SqlParameter imageDataParam = new SqlParameter("@StudentImage", SqlDbType.VarBinary);
+                imageDataParam.Value = imageData;
+                command.Parameters.Add(imageDataParam);
+
+                if (command.ExecuteNonQuery() > 0)
+                {
+                    MessageBox.Show("Student Update Successfully");
+                    StudentPanelPage studentPanelPage = Application.OpenForms.OfType<StudentPanelPage>().FirstOrDefault();
+
+                    // Update the DataGridView in the StudentPanelPage form
+                    studentPanelPage?.RefreshDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Student Update Not Successfull");
+                }
+            }
             Close();
+        }
+        private void importImageButton_Click(object sender, EventArgs e)
+        {
+            sd = new StudentDatabase();
+            //TODO NOT YET FINISH
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg, *.png)|*.jpg;*.png";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pbPreview.Image = Image.FromFile(openFileDialog.FileName);
+                txtFileName.Text = openFileDialog.FileName;
+            }
+        }
+
+        byte[] ConvertImageToBytes(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
         }
     }
 }

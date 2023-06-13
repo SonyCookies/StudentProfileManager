@@ -112,7 +112,8 @@ namespace StudentProfileManager
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            ExitForm exForm = new ExitForm();
+            exForm.Show();
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)

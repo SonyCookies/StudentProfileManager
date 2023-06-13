@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace StudentProfileManager
 {
@@ -34,9 +35,9 @@ namespace StudentProfileManager
             {
                 connection.Open();
 
-                string sql = "SELECT * FROM StudentInfo WHERE StudentId = @StudentId";
+                string sql = "SELECT * FROM StudentInfo WHERE Id = @ID";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@StudentId", selectedIdentifier);
+                command.Parameters.AddWithValue("@ID", selectedIdentifier);
 
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
@@ -54,6 +55,7 @@ namespace StudentProfileManager
                     lblStudentReligion.Text = reader["Religion"].ToString();
                     lblStudentBirth.Text = reader["PlaceOfBirth"].ToString();
                     lblStudentAddress.Text = reader["Address"].ToString();
+                    pbStudentImage.Image = ConvertByteToArrayToImage((byte[])reader["StudentImage"]);
 
 
                     FatherNameLabel.Text = reader["FaName"].ToString();
@@ -84,6 +86,23 @@ namespace StudentProfileManager
 
                 reader.Close();
             }
+        }
+        public Image ConvertByteToArrayToImage(byte[] data)
+        {
+            try
+            {
+                using (MemoryStream ms = new MemoryStream(data))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception or output the error message for debugging
+                Console.WriteLine($"Error converting byte array to image: {ex.Message}");
+                return null; // Return null or a default image in case of an error
+            }
+
         }
     }
 }

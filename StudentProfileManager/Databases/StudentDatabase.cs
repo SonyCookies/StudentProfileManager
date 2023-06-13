@@ -11,7 +11,7 @@ namespace StudentProfileManager
 {
     class StudentDatabase
     {
-        private SqlConnection connection;
+        public SqlConnection connection;
         private SqlCommand cmd;
         public string connectionString;
         public string addquery;
@@ -32,7 +32,6 @@ namespace StudentProfileManager
 
         public int cud(string query)
         {
-            
             cmd = new SqlCommand(query, connection);
             return cmd.ExecuteNonQuery();
         }
@@ -40,6 +39,7 @@ namespace StudentProfileManager
         public DataTable GetStudentData(string query)
         {
             DataTable dTable = new DataTable();
+            dTable.Columns.Add("Id", typeof(string));
             dTable.Columns.Add("StudentId", typeof(string));
             dTable.Columns.Add("StudentName", typeof(string));
             dTable.Columns.Add("Course", typeof(string));
@@ -52,19 +52,20 @@ namespace StudentProfileManager
 
             foreach (DataRow row in origDTable.Rows)
             {
+                string id = row["Id"].ToString();
                 string studentId = row["StudentId"].ToString();
                 string fName = row["StudentFName"].ToString();
                 string mName = row["StudentMName"].ToString();
                 string lName = row["StudentLName"].ToString();
                 string s = row["StudentSuffix"].ToString();
-                string fullName = $"{lName}, {fName} {mName}";
+                string fullName = $"{lName}, {fName} {mName} {s}";
                 string course = row["Course"].ToString();
                 string year = row["Year"].ToString();
                 string section = row["Section"].ToString();
                 string yearSection = $"{year.Trim()}-{section}";
                 string typeOfStudent = row["StudentType"].ToString();
 
-                dTable.Rows.Add(studentId, fullName, course, yearSection, typeOfStudent);
+                dTable.Rows.Add(id, studentId, fullName, course, yearSection, typeOfStudent);
             }
             return dTable;
         }
