@@ -177,9 +177,9 @@ namespace StudentProfileManager
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(25)))));
             this.label1.Location = new System.Drawing.Point(399, 148);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 19);
+            this.label1.Size = new System.Drawing.Size(95, 19);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Admin: ";
+            this.label1.Text = "Username: ";
             // 
             // pictureBox2
             // 

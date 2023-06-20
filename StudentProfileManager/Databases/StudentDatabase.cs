@@ -77,5 +77,14 @@ namespace StudentProfileManager
 
             cmd.ExecuteNonQuery();
         }
+
+        public string StudentCount()
+        {
+            string query = "SELECT COUNT(*) FROM StudentInfo";
+            cmd = new SqlCommand(query, connection);
+            int rowCount = (int)cmd.ExecuteScalar();
+
+            return rowCount.ToString();
+        }
     }
 }

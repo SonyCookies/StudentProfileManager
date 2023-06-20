@@ -165,6 +165,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoursesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoursesForm.Designer.cs">
+      <DependentUpon>CoursesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +240,12 @@
     <Compile Include="Forms\ViewStudentForm.Designer.cs">
       <DependentUpon>ViewStudentForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CoursesForm.resx">
+      <DependentUpon>CoursesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditStudentForm.resx">
       <DependentUpon>EditStudentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -329,6 +347,12 @@
     <None Include="Resources\icons8-return-24.png" />
     <None Include="Resources\icons8-home-25.png" />
     <None Include="Resources\icons8-home-24.png" />
+    <None Include="Resources\icons8-admin-100.png" />
+    <None Include="Resources\icons8-admin-1001.png" />
+    <None Include="Resources\icons8-students-100.png" />
+    <None Include="Resources\icons8-graduation-cap-100.png" />
+    <None Include="Resources\icons8-class-100.png" />
+    <None Include="Resources\5337af5e-a38c-47ee-870c-9bf43ac1a575.png" />
     <Content Include="StudentProfileManagerDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

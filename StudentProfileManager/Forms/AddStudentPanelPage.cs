@@ -24,6 +24,11 @@ namespace StudentProfileManager
             lblInvFPN.Hide();
             lblInvMPN.Hide();
             lblInvGPN.Hide();
+
+            lblAgeS.Hide();
+            lblAgeF.Hide();
+            lblAgeM.Hide();
+            lblAgeG.Hide();
         }
 
         private void Clear()
@@ -238,7 +243,6 @@ namespace StudentProfileManager
                 lbl.Hide();
             }
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -247,6 +251,26 @@ namespace StudentProfileManager
         private void txtStudentAddress_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtStudentAge_TextChanged(object sender, EventArgs e)
+        {
+            numChecker(txtStudentAge.Text, lblAgeS);
+        }
+
+        private void txtFatherAge_TextChanged(object sender, EventArgs e)
+        {
+            numChecker(txtFatherAge.Text, lblAgeF);
+        }
+
+        private void txtMotherAge_TextChanged(object sender, EventArgs e)
+        {
+            numChecker(txtMotherAge.Text, lblAgeM);
+        }
+
+        private void txtGuardianAge_TextChanged(object sender, EventArgs e)
+        {
+            numChecker(txtGuardianAge.Text, lblAgeG);
         }
     }
 }

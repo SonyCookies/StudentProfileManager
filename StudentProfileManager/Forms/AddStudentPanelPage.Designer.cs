@@ -54,6 +54,7 @@ namespace StudentProfileManager
             this.txtStudentAddress = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblAgeS = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.pbPreview = new System.Windows.Forms.PictureBox();
@@ -85,6 +86,9 @@ namespace StudentProfileManager
             this.label4 = new System.Windows.Forms.Label();
             this.txtSection = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblAgeG = new System.Windows.Forms.Label();
+            this.lblAgeM = new System.Windows.Forms.Label();
+            this.lblAgeF = new System.Windows.Forms.Label();
             this.lblInvGPN = new System.Windows.Forms.Label();
             this.lblInvMPN = new System.Windows.Forms.Label();
             this.lblInvFPN = new System.Windows.Forms.Label();
@@ -345,6 +349,7 @@ namespace StudentProfileManager
             this.txtStudentAge.Name = "txtStudentAge";
             this.txtStudentAge.Size = new System.Drawing.Size(68, 24);
             this.txtStudentAge.TabIndex = 12;
+            this.txtStudentAge.TextChanged += new System.EventHandler(this.txtStudentAge_TextChanged);
             // 
             // label14
             // 
@@ -399,6 +404,7 @@ namespace StudentProfileManager
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblAgeS);
             this.groupBox1.Controls.Add(this.label65);
             this.groupBox1.Controls.Add(this.txtFileName);
             this.groupBox1.Controls.Add(this.pbPreview);
@@ -461,10 +467,21 @@ namespace StudentProfileManager
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student";
             // 
+            // lblAgeS
+            // 
+            this.lblAgeS.AutoSize = true;
+            this.lblAgeS.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAgeS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(43)))), ((int)(((byte)(42)))));
+            this.lblAgeS.Location = new System.Drawing.Point(313, 200);
+            this.lblAgeS.Name = "lblAgeS";
+            this.lblAgeS.Size = new System.Drawing.Size(69, 15);
+            this.lblAgeS.TabIndex = 61;
+            this.lblAgeS.Text = "Invalid age";
+            // 
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(111, 290);
+            this.label65.Location = new System.Drawing.Point(89, 290);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(86, 17);
             this.label65.TabIndex = 60;
@@ -475,7 +492,7 @@ namespace StudentProfileManager
             this.txtFileName.BackColor = System.Drawing.Color.White;
             this.txtFileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFileName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFileName.Location = new System.Drawing.Point(206, 288);
+            this.txtFileName.Location = new System.Drawing.Point(184, 288);
             this.txtFileName.Name = "txtFileName";
             this.txtFileName.ReadOnly = true;
             this.txtFileName.Size = new System.Drawing.Size(467, 24);
@@ -484,7 +501,7 @@ namespace StudentProfileManager
             // 
             // pbPreview
             // 
-            this.pbPreview.Location = new System.Drawing.Point(678, 273);
+            this.pbPreview.Location = new System.Drawing.Point(676, 271);
             this.pbPreview.Name = "pbPreview";
             this.pbPreview.Size = new System.Drawing.Size(50, 50);
             this.pbPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -781,6 +798,9 @@ namespace StudentProfileManager
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblAgeG);
+            this.groupBox2.Controls.Add(this.lblAgeM);
+            this.groupBox2.Controls.Add(this.lblAgeF);
             this.groupBox2.Controls.Add(this.lblInvGPN);
             this.groupBox2.Controls.Add(this.lblInvMPN);
             this.groupBox2.Controls.Add(this.lblInvFPN);
@@ -843,6 +863,39 @@ namespace StudentProfileManager
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Family Background";
+            // 
+            // lblAgeG
+            // 
+            this.lblAgeG.AutoSize = true;
+            this.lblAgeG.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAgeG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(43)))), ((int)(((byte)(42)))));
+            this.lblAgeG.Location = new System.Drawing.Point(314, 463);
+            this.lblAgeG.Name = "lblAgeG";
+            this.lblAgeG.Size = new System.Drawing.Size(69, 15);
+            this.lblAgeG.TabIndex = 64;
+            this.lblAgeG.Text = "Invalid age";
+            // 
+            // lblAgeM
+            // 
+            this.lblAgeM.AutoSize = true;
+            this.lblAgeM.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAgeM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(43)))), ((int)(((byte)(42)))));
+            this.lblAgeM.Location = new System.Drawing.Point(315, 306);
+            this.lblAgeM.Name = "lblAgeM";
+            this.lblAgeM.Size = new System.Drawing.Size(69, 15);
+            this.lblAgeM.TabIndex = 63;
+            this.lblAgeM.Text = "Invalid age";
+            // 
+            // lblAgeF
+            // 
+            this.lblAgeF.AutoSize = true;
+            this.lblAgeF.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAgeF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(43)))), ((int)(((byte)(42)))));
+            this.lblAgeF.Location = new System.Drawing.Point(315, 149);
+            this.lblAgeF.Name = "lblAgeF";
+            this.lblAgeF.Size = new System.Drawing.Size(69, 15);
+            this.lblAgeF.TabIndex = 62;
+            this.lblAgeF.Text = "Invalid age";
             // 
             // lblInvGPN
             // 
@@ -996,6 +1049,7 @@ namespace StudentProfileManager
             this.txtGuardianAge.Name = "txtGuardianAge";
             this.txtGuardianAge.Size = new System.Drawing.Size(66, 24);
             this.txtGuardianAge.TabIndex = 19;
+            this.txtGuardianAge.TextChanged += new System.EventHandler(this.txtGuardianAge_TextChanged);
             // 
             // label36
             // 
@@ -1129,6 +1183,7 @@ namespace StudentProfileManager
             this.txtMotherAge.Name = "txtMotherAge";
             this.txtMotherAge.Size = new System.Drawing.Size(66, 24);
             this.txtMotherAge.TabIndex = 11;
+            this.txtMotherAge.TextChanged += new System.EventHandler(this.txtMotherAge_TextChanged);
             // 
             // label24
             // 
@@ -1263,6 +1318,7 @@ namespace StudentProfileManager
             this.txtFatherAge.Name = "txtFatherAge";
             this.txtFatherAge.Size = new System.Drawing.Size(69, 24);
             this.txtFatherAge.TabIndex = 4;
+            this.txtFatherAge.TextChanged += new System.EventHandler(this.txtFatherAge_TextChanged);
             // 
             // label21
             // 
@@ -1390,10 +1446,11 @@ namespace StudentProfileManager
             // 
             // btnAddStud
             // 
-            this.btnAddStud.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(29)))));
+            this.btnAddStud.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(101)))), ((int)(((byte)(48)))));
             this.btnAddStud.FlatAppearance.BorderSize = 0;
             this.btnAddStud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddStud.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddStud.ForeColor = System.Drawing.Color.White;
             this.btnAddStud.Location = new System.Drawing.Point(777, 895);
             this.btnAddStud.Name = "btnAddStud";
             this.btnAddStud.Size = new System.Drawing.Size(150, 35);
@@ -1568,5 +1625,9 @@ namespace StudentProfileManager
         private System.Windows.Forms.PictureBox pbPreview;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.TextBox txtFileName;
+        private System.Windows.Forms.Label lblAgeS;
+        private System.Windows.Forms.Label lblAgeG;
+        private System.Windows.Forms.Label lblAgeM;
+        private System.Windows.Forms.Label lblAgeF;
     }
 }

@@ -30,7 +30,7 @@ namespace StudentProfileManager
 
                 if (db.CheckLoginCredentials(username, password))
                 {
-                    DashBoardForm dbForm = new DashBoardForm();
+                    DashBoardForm dbForm = new DashBoardForm(username);
                     dbForm.Show();
                     Close();
                 }
@@ -81,26 +81,42 @@ namespace StudentProfileManager
             {
                 // Password is currently hidden, so show it
                 txtPassword.UseSystemPasswordChar = false;
-                btnTogglePass.Image = Properties.Resources.visibility_off_FILL0_wght400_GRAD0_opsz20;
+                btnTogglePass.Image = Properties.Resources.visibility_FILL0_wght400_GRAD0_opsz20;
+
             }
             else
             {
                 // Password is currently shown, so hide it
                 txtPassword.UseSystemPasswordChar = true;
-                btnTogglePass.Image = Properties.Resources.visibility_FILL0_wght400_GRAD0_opsz20;
+                btnTogglePass.Image = Properties.Resources.visibility_off_FILL0_wght400_GRAD0_opsz20;
             }
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            if (txtPassword.Text != "")
+            if (txtPassword.UseSystemPasswordChar)
             {
-                btnTogglePass.Show();
+                if (txtPassword.Text != "")
+                {
+                    btnTogglePass.Show();
+                }
+                if (txtPassword.Text == "")
+                {
+                    btnTogglePass.Hide();
+                }
                 btnTogglePass.Image = Properties.Resources.visibility_off_FILL0_wght400_GRAD0_opsz20;
             }
-            if (txtPassword.Text == "")
+            else
             {
-                btnTogglePass.Hide();
+                if (txtPassword.Text == "")
+                {
+                    btnTogglePass.Hide();
+                }
+                if (txtPassword.Text != "")
+                {
+                    btnTogglePass.Show();
+                }
+                btnTogglePass.Image = Properties.Resources.visibility_FILL0_wght400_GRAD0_opsz20;
             }
         }
     }

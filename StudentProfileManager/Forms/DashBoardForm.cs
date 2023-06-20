@@ -15,10 +15,12 @@ namespace StudentProfileManager
 
         public Button currentButton;
         private Form activeForm;
+        private string adminEntered;
 
-        public DashBoardForm()
+        public DashBoardForm(string username)
         {
             InitializeComponent();
+            adminEntered = username;
         }
 
         private void DashBoardForm_Load(object sender, EventArgs e)
@@ -145,5 +147,10 @@ namespace StudentProfileManager
             pictureBox1.Show();
         }
 
+        private void btnAdminProfile_Click(object sender, EventArgs e)
+        {
+            AdminForm amForm = new AdminForm(adminEntered);
+            amForm.Show();
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace StudentProfileManager
 {
@@ -36,6 +37,19 @@ namespace StudentProfileManager
 
                 return count > 0;
             }
+        }
+
+        public int ChangePassword(TextBox txtPassword, Label lblUsername)
+        {
+            string query = "UPDATE Admin SET password = @password WHERE username = @username";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@password", txtPassword.Text);
+            command.Parameters.AddWithValue("@username", lblUsername.Text);
+
+            return command.ExecuteNonQuery();
+
+
         }
 
     }
