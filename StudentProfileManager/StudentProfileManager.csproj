@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -165,11 +168,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoursesForm.cs">
+    <Compile Include="Forms\CollegesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CoursesForm.Designer.cs">
-      <DependentUpon>CoursesForm.cs</DependentUpon>
+    <Compile Include="Forms\CollegesForm.Designer.cs">
+      <DependentUpon>CollegesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AdminForm.cs">
       <SubType>Form</SubType>
@@ -240,8 +243,20 @@
     <Compile Include="Forms\ViewStudentForm.Designer.cs">
       <DependentUpon>ViewStudentForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CoursesForm.resx">
-      <DependentUpon>CoursesForm.cs</DependentUpon>
+    <Compile Include="UserControls\UserControlBlank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlBlank.Designer.cs">
+      <DependentUpon>UserControlBlank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlDays.Designer.cs">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\CollegesForm.resx">
+      <DependentUpon>CollegesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
@@ -282,6 +297,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViewStudentForm.resx">
       <DependentUpon>ViewStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlBlank.resx">
+      <DependentUpon>UserControlBlank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlDays.resx">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -353,6 +374,16 @@
     <None Include="Resources\icons8-graduation-cap-100.png" />
     <None Include="Resources\icons8-class-100.png" />
     <None Include="Resources\5337af5e-a38c-47ee-870c-9bf43ac1a575.png" />
+    <None Include="Resources\4b875c61-df25-4ac8-b00f-a1defa40efd9.png" />
+    <None Include="Resources\6b43da66-316d-4069-a61a-c442be2d8023.png" />
+    <None Include="Resources\9ddc8396-9204-4adc-8303-ee7766bf9f08.png" />
+    <None Include="Resources\bf6793e4-4245-4837-88e3-fada203a9cdd.png" />
+    <None Include="Resources\icons8-student-100.png" />
+    <None Include="Resources\icons8-student-1001.png" />
+    <None Include="Resources\icons8-student-1002.png" />
+    <None Include="Resources\icons8-student-1003.png" />
+    <None Include="Resources\icons8-admin-24.png" />
+    <Content Include="logo.ico" />
     <Content Include="StudentProfileManagerDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 
+
+
 namespace StudentProfileManager
 {
     public partial class AddStudentPanelPage : Form
@@ -29,12 +31,14 @@ namespace StudentProfileManager
             lblAgeF.Hide();
             lblAgeM.Hide();
             lblAgeG.Hide();
+
+            txtSection.Mask = "0-L0";
         }
+
 
         private void Clear()
         {
             txtStudentId.Clear();
-            txtYear.Clear();
             cmbCourse.SelectedIndex = 0;
             cmbStudentType.SelectedIndex = 0;
             txtSection.Clear();
@@ -71,11 +75,6 @@ namespace StudentProfileManager
             txtGuardianAddress.Clear();
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            Clear();
-        }
-
         private void AddStudentPanelPage_Load(object sender, EventArgs e)
         {
             sd = new StudentDatabase();
@@ -87,7 +86,7 @@ namespace StudentProfileManager
 
             byte[] imageData;
            
-            if (string.IsNullOrEmpty(txtStudentId.Text) || string.IsNullOrEmpty(txtYear.Text) ||
+            if (string.IsNullOrEmpty(txtStudentId.Text) ||
                 string.IsNullOrEmpty(txtSection.Text) || string.IsNullOrEmpty(cmbCourse.Text) ||
                 string.IsNullOrEmpty(cmbStudentType.Text) || string.IsNullOrEmpty(txtFName.Text) ||
                 string.IsNullOrEmpty(txtMName.Text) || string.IsNullOrEmpty(txtLName.Text) ||
@@ -106,12 +105,12 @@ namespace StudentProfileManager
             }
             imageData = ConvertImageToBytes(pbPreview.Image);
 
-            string query = "INSERT INTO StudentInfo (StudentId, Year, Section, Course, StudentType, " +
+            string query = "INSERT INTO StudentInfo (StudentId, YearSection, Course, StudentType, " +
                 "StudentFName, StudentMName, StudentLName, StudentSuffix, Religion, BirthDate, Age, Gender, " +
                 "PhoneNumber, EmailAdress, PlaceOfBirth, Address, StudentImage, StudentImageFileName, FaName, FaOccupation, FaAddress, FaAge, " +
                 "FaBirthDate, FaPhoneNumber, FaEmailAddress, MoName, MoOccupation, MoAddress, MoBirthDate, MoAge, " +
                 "MoPhoneNumber, MoEmailAddress, GuName, GuRelation, GuOccupation, GuPhoneNumber, " +
-                "GuBirthDate, GuAge, GuAddress) VALUES (@StudentId, @Year, @Section, @Course, @StudentType, " +
+                "GuBirthDate, GuAge, GuAddress) VALUES (@StudentId, @YearSection, @Course, @StudentType, " +
                 "@StudentFName, @StudentMName, @StudentLName, @StudentSuffix, @Religion, @BirthDate, @Age, @Gender, " +
                 "@PhoneNumber, @EmailAdress, @PlaceOfBirth, @Address, @StudentImage, @StudentImageFileName, @FaName, @FaOccupation, @FaAddress, @FaAge, " +
                 "@FaBirthDate, @FaPhoneNumber, @FaEmailAddress, @MoName, @MoOccupation, @MoAddress, @MoBirthDate, @MoAge, " +
@@ -123,8 +122,7 @@ namespace StudentProfileManager
             {
                 SqlCommand command = new SqlCommand(query, sd.connection);
                 command.Parameters.AddWithValue("@StudentId", txtStudentId.Text);
-                command.Parameters.AddWithValue("@Year", txtYear.Text);
-                command.Parameters.AddWithValue("@Section", txtSection.Text);
+                command.Parameters.AddWithValue("@YearSection", txtSection.Text);
                 command.Parameters.AddWithValue("@Course", cmbCourse.Text);
                 command.Parameters.AddWithValue("@StudentType", cmbStudentType.Text);
                 command.Parameters.AddWithValue("@StudentFName", txtFName.Text);
@@ -166,7 +164,7 @@ namespace StudentProfileManager
                 imageDataParam.Value = imageData;
                 command.Parameters.Add(imageDataParam);
 
-                if (command.ExecuteNonQuery() > 0)
+                if (command.ExecuteNonQuery() > 0)  
                 {
                     Clear();
                     MessageBox.Show("Student Added Successfully");
@@ -212,7 +210,7 @@ namespace StudentProfileManager
 
         private void txtMotherPhone_TextChanged(object sender, EventArgs e)
         {
-            numChecker(txtGuardianPhone.Text, lblInvMPN);
+            numChecker(txtMotherPhone.Text, lblInvMPN);
         }
 
         private void txtStudentPhone_TextChanged(object sender, EventArgs e)
@@ -248,11 +246,6 @@ namespace StudentProfileManager
 
         }
 
-        private void txtStudentAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtStudentAge_TextChanged(object sender, EventArgs e)
         {
             numChecker(txtStudentAge.Text, lblAgeS);
@@ -271,6 +264,44 @@ namespace StudentProfileManager
         private void txtGuardianAge_TextChanged(object sender, EventArgs e)
         {
             numChecker(txtGuardianAge.Text, lblAgeG);
+        }
+
+        private void dtpStudentBirth_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime studentBirthDate = dtpStudentBirth.Value;
+            txtStudentAge.Text = CalculateAge(studentBirthDate).ToString();
+        }
+
+        private void dtpFatherBirth_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fatherBirthDate = dtpFatherBirth.Value;
+            txtFatherAge.Text = CalculateAge(fatherBirthDate).ToString();
+        }
+
+
+
+        private int CalculateAge(DateTime birthDate)
+        {
+            DateTime currentDate = DateTime.Now;
+            int age = currentDate.Year - birthDate.Year;
+
+            // Check if the birth date has not yet occurred this year
+            if (birthDate > currentDate.AddYears(-age))
+                age--;
+
+            return age;
+        }
+
+        private void dtpMotherBirth_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime motherBirthDate = dtpMotherBirth.Value;
+            txtMotherAge.Text = CalculateAge(motherBirthDate).ToString();
+        }
+
+        private void dtpGuardianBirth_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime guardianBirthDate = dtpGuardianBirth.Value;
+            txtGuardianAge.Text = CalculateAge(guardianBirthDate).ToString();
         }
     }
 }

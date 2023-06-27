@@ -29,6 +29,7 @@ namespace StudentProfileManager
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewStudentForm));
             this.lblStudentName = new System.Windows.Forms.Label();
             this.lblStudentId = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -150,7 +151,7 @@ namespace StudentProfileManager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(646, 17);
+            this.label3.Location = new System.Drawing.Point(765, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(183, 18);
             this.label3.TabIndex = 3;
@@ -165,7 +166,7 @@ namespace StudentProfileManager
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(664, 35);
+            this.label4.Location = new System.Drawing.Point(764, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(165, 19);
             this.label4.TabIndex = 4;
@@ -180,7 +181,7 @@ namespace StudentProfileManager
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(669, 54);
+            this.label5.Location = new System.Drawing.Point(764, 55);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(160, 19);
             this.label5.TabIndex = 5;
@@ -508,7 +509,7 @@ namespace StudentProfileManager
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Olive;
-            this.panel2.Location = new System.Drawing.Point(44, 464);
+            this.panel2.Location = new System.Drawing.Point(44, 459);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(910, 1);
             this.panel2.TabIndex = 34;
@@ -518,7 +519,7 @@ namespace StudentProfileManager
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(46, 433);
+            this.label29.Location = new System.Drawing.Point(46, 428);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(74, 19);
             this.label29.TabIndex = 33;
@@ -528,7 +529,7 @@ namespace StudentProfileManager
             // 
             this.FatherNameLabel.AutoSize = true;
             this.FatherNameLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FatherNameLabel.Location = new System.Drawing.Point(142, 541);
+            this.FatherNameLabel.Location = new System.Drawing.Point(142, 536);
             this.FatherNameLabel.Name = "FatherNameLabel";
             this.FatherNameLabel.Size = new System.Drawing.Size(196, 19);
             this.FatherNameLabel.TabIndex = 36;
@@ -541,7 +542,7 @@ namespace StudentProfileManager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(125, 514);
+            this.label31.Location = new System.Drawing.Point(125, 509);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(56, 17);
             this.label31.TabIndex = 35;
@@ -551,7 +552,7 @@ namespace StudentProfileManager
             // 
             this.FatherOccupationLabel.AutoSize = true;
             this.FatherOccupationLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FatherOccupationLabel.Location = new System.Drawing.Point(531, 538);
+            this.FatherOccupationLabel.Location = new System.Drawing.Point(531, 533);
             this.FatherOccupationLabel.Name = "FatherOccupationLabel";
             this.FatherOccupationLabel.Size = new System.Drawing.Size(74, 19);
             this.FatherOccupationLabel.TabIndex = 38;
@@ -564,7 +565,7 @@ namespace StudentProfileManager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(526, 514);
+            this.label33.Location = new System.Drawing.Point(526, 509);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(94, 17);
             this.label33.TabIndex = 37;
@@ -574,7 +575,7 @@ namespace StudentProfileManager
             // 
             this.FatherAgeLabel.AutoSize = true;
             this.FatherAgeLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FatherAgeLabel.Location = new System.Drawing.Point(142, 663);
+            this.FatherAgeLabel.Location = new System.Drawing.Point(142, 658);
             this.FatherAgeLabel.Name = "FatherAgeLabel";
             this.FatherAgeLabel.Size = new System.Drawing.Size(27, 19);
             this.FatherAgeLabel.TabIndex = 40;
@@ -587,7 +588,7 @@ namespace StudentProfileManager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(125, 636);
+            this.label35.Location = new System.Drawing.Point(125, 631);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(42, 17);
             this.label35.TabIndex = 39;
@@ -597,7 +598,7 @@ namespace StudentProfileManager
             // 
             this.FatherEmailAddressLabel.AutoSize = true;
             this.FatherEmailAddressLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FatherEmailAddressLabel.Location = new System.Drawing.Point(537, 660);
+            this.FatherEmailAddressLabel.Location = new System.Drawing.Point(537, 655);
             this.FatherEmailAddressLabel.Name = "FatherEmailAddressLabel";
             this.FatherEmailAddressLabel.Size = new System.Drawing.Size(210, 19);
             this.FatherEmailAddressLabel.TabIndex = 46;
@@ -610,7 +611,7 @@ namespace StudentProfileManager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(526, 636);
+            this.label37.Location = new System.Drawing.Point(526, 631);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(104, 17);
             this.label37.TabIndex = 45;
@@ -620,7 +621,7 @@ namespace StudentProfileManager
             // 
             this.FatherPhoneNumberLabel.AutoSize = true;
             this.FatherPhoneNumberLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FatherPhoneNumberLabel.Location = new System.Drawing.Point(531, 599);
+            this.FatherPhoneNumberLabel.Location = new System.Drawing.Point(531, 594);
             this.FatherPhoneNumberLabel.Name = "FatherPhoneNumberLabel";
             this.FatherPhoneNumberLabel.Size = new System.Drawing.Size(108, 19);
             this.FatherPhoneNumberLabel.TabIndex = 44;
@@ -633,7 +634,7 @@ namespace StudentProfileManager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(526, 575);
+            this.label39.Location = new System.Drawing.Point(526, 570);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(113, 17);
             this.label39.TabIndex = 43;
@@ -643,7 +644,7 @@ namespace StudentProfileManager
             // 
             this.FatherBirthDateLabel.AutoSize = true;
             this.FatherBirthDateLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FatherBirthDateLabel.Location = new System.Drawing.Point(142, 602);
+            this.FatherBirthDateLabel.Location = new System.Drawing.Point(142, 597);
             this.FatherBirthDateLabel.Name = "FatherBirthDateLabel";
             this.FatherBirthDateLabel.Size = new System.Drawing.Size(95, 19);
             this.FatherBirthDateLabel.TabIndex = 42;
@@ -656,7 +657,7 @@ namespace StudentProfileManager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(128, 575);
+            this.label41.Location = new System.Drawing.Point(128, 570);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(79, 17);
             this.label41.TabIndex = 41;
@@ -666,7 +667,7 @@ namespace StudentProfileManager
             // 
             this.FatherAddressLabel.AutoSize = true;
             this.FatherAddressLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FatherAddressLabel.Location = new System.Drawing.Point(142, 724);
+            this.FatherAddressLabel.Location = new System.Drawing.Point(142, 719);
             this.FatherAddressLabel.Name = "FatherAddressLabel";
             this.FatherAddressLabel.Size = new System.Drawing.Size(327, 19);
             this.FatherAddressLabel.TabIndex = 48;
@@ -679,7 +680,7 @@ namespace StudentProfileManager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(125, 697);
+            this.label43.Location = new System.Drawing.Point(125, 692);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(65, 17);
             this.label43.TabIndex = 47;
@@ -689,7 +690,7 @@ namespace StudentProfileManager
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(48, 477);
+            this.label44.Location = new System.Drawing.Point(48, 472);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(57, 19);
             this.label44.TabIndex = 49;
@@ -1106,7 +1107,7 @@ namespace StudentProfileManager
             // pictureBox2
             // 
             this.pictureBox2.Image = global::StudentProfileManager.Properties.Resources.logo__2_;
-            this.pictureBox2.Location = new System.Drawing.Point(832, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(688, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(70, 70);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1216,6 +1217,7 @@ namespace StudentProfileManager
             this.Controls.Add(this.lblStudentId);
             this.Controls.Add(this.lblStudentName);
             this.Controls.Add(this.pbStudentImage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Profile";

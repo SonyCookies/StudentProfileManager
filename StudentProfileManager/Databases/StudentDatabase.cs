@@ -60,9 +60,7 @@ namespace StudentProfileManager
                 string s = row["StudentSuffix"].ToString().Trim();
                 string fullName = $"{lName}, {fName} {mName} {s}";
                 string course = row["Course"].ToString().Trim();
-                string year = row["Year"].ToString().Trim();
-                string section = row["Section"].ToString().Trim();
-                string yearSection = $"{year}-{section}";
+                string yearSection = row["YearSection"].ToString().Trim() ;
                 string typeOfStudent = row["StudentType"].ToString().Trim();
 
                 dTable.Rows.Add(id, studentId, fullName, course, yearSection, typeOfStudent);

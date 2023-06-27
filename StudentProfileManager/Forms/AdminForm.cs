@@ -19,6 +19,7 @@ namespace StudentProfileManager
         {
             InitializeComponent();
             adminEntered = username;
+            lblInvalid.Hide();
         }
 
         private void txtAdminCurPass_TextChanged(object sender, EventArgs e)
@@ -72,6 +73,7 @@ namespace StudentProfileManager
         {
             if (txtAdminNewPass.TextLength < 8 && txtAdminNewPass.TextLength > 0)
             {
+                lblInvalid.Show();
                 lblInvalid.Text = "*New password must be at least 8 characters long!";
                 btnChangePass.Enabled = false;
             }
@@ -125,9 +127,10 @@ namespace StudentProfileManager
 
         private void txtAdminConPass_TextChanged(object sender, EventArgs e)
         {
-            if (txtAdminConPass.TextLength < 8 && txtAdminConPass.TextLength > 0)
+            if (txtAdminConPass.Text != txtAdminNewPass.Text)
             {
-                lblInvalid.Text = "*Password must be at least 8 characters long!";
+                lblInvalid.Show();
+                lblInvalid.Text = "*Password does not match.";
                 btnChangePass.Enabled = false;
             }
             else
@@ -229,11 +232,11 @@ namespace StudentProfileManager
                         else
                         {
                             txtAdminCurPass.Text = string.Empty;
-                            txtAdminUsername.Text = string.Empty;
                             txtAdminConPass.Text = string.Empty;
                             txtAdminNewPass.Text = string.Empty;
 
                             lblInvalid.Text = "*Password incorrect.";
+                            btnChangePass.Enabled = false;
                         }
                     }
                 }

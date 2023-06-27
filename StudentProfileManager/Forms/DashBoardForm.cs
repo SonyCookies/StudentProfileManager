@@ -21,6 +21,7 @@ namespace StudentProfileManager
         {
             InitializeComponent();
             adminEntered = username;
+            lblHeader.Text = "Student's Profile Manager";
         }
 
         private void DashBoardForm_Load(object sender, EventArgs e)
@@ -142,7 +143,7 @@ namespace StudentProfileManager
         private void Reset()
         {
             DisableButton();
-            lblHeader.Text = "Welcome";
+            lblHeader.Text = "Student's Profile Manager";
             currentButton = null;
             pictureBox1.Show();
         }

@@ -46,7 +46,7 @@ namespace StudentProfileManager
                     lblStudentName.Text = $"{reader["StudentFName"]} {reader["StudentMName"]} {reader["StudentLName"]}";
                     lblStudentCourse.Text = reader["Course"].ToString();
                     lblStudentBirthDate.Text = ((DateTime) reader["BirthDate"]).ToString("MM/dd/yyyy");
-                    lblStudentYearSection.Text = $"{reader["Year"]}-{reader["Section"]}";
+                    lblStudentYearSection.Text = $"{reader["YearSection"]}";
                     lblStudentType.Text = reader["StudentType"].ToString();
                     lblStudentGender.Text = reader["Gender"].ToString();
                     lblStudentAge.Text = reader["Age"].ToString();

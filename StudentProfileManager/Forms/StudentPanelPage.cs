@@ -79,30 +79,39 @@ namespace StudentProfileManager
 
         private void btnDeleteStudent_Click(object sender, EventArgs e)
         {
-            sd = new StudentDatabase();
-            if (dgvStudentManage.SelectedRows.Count > 0)
+            DialogResult dlt = MessageBox.Show("Are you sure you want to proceed with the deletion?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlt == DialogResult.Yes)
             {
-                DataGridViewRow selectedRow = dgvStudentManage.SelectedRows[0];
-                string id = selectedRow.Cells["Id"].Value.ToString();
+                sd = new StudentDatabase();
+                if (dgvStudentManage.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dgvStudentManage.SelectedRows[0];
+                    string id = selectedRow.Cells["Id"].Value.ToString();
 
-                string query = "DELETE FROM StudentInfo WHERE Id = @ID";
-                sd.DeleteStudent(query, id);
+                    string query = "DELETE FROM StudentInfo WHERE Id = @ID";
+                    sd.DeleteStudent(query, id);
 
-                dgvStudentManage.Rows.RemoveAt(selectedRow.Index);
+                    dgvStudentManage.Rows.RemoveAt(selectedRow.Index);
 
-                MessageBox.Show("Student Deleted Successfully.");
-            }
-            else
-            {
-                MessageBox.Show("Select Student to Delete.");
-            }
+                    MessageBox.Show("Student Deleted Successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Select Student to Delete.");
+                }
+            }             
+        }
+
+        public void txtSearchInputter(string txt)
+        {
+            txtSearch.Text = txt;
         }
 
         public void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string query = "SELECT * FROM StudentInfo WHERE StudentId LIKE '%" + txtSearch.Text + "%' OR StudentFName LIKE '%" + txtSearch.Text + "%'" +
                     "OR StudentLName LIKE '%" + txtSearch.Text + "%' OR StudentMName LIKE '%" + txtSearch.Text + "%' OR Course LIKE '%" + txtSearch.Text + "%'" +
-                    "OR Year LIKE '%" + txtSearch.Text + "%' OR Section LIKE '%" + txtSearch.Text + "%' OR StudentType LIKE '%" + txtSearch.Text + "%';";
+                    "OR YearSection LIKE '%" + txtSearch.Text + "%' OR StudentType LIKE '%" + txtSearch.Text + "%';";
 
             dgvStudentManage.DataSource = sd.GetStudentData(query);
 
